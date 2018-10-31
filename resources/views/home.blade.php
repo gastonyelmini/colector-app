@@ -14,10 +14,16 @@
                         </div>
                     @endif
 
-                    <form action="POST">
-                        <input type="number" placeholder="Ej: 38155143" class="docInput" required>
+                    <form method="POST" action="{{ URL::to('/dnis') }}">
+                        @csrf
+                        <input type="number" name="dni" placeholder="Ej: 38155143" class="docInput" required>
                         <button type="submit" class="submitDoc">Enviar</button>
                     </form>
+                    @if ($errors->has('dni'))
+                    <span class="invalid-feedback main-error" role="alert">
+                        <strong>{{ $errors->first('dni') }}</strong>
+                    </span>
+                    @endif
                 </div>
             </div>
         </div>

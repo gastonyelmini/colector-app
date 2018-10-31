@@ -6,24 +6,15 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateDnisTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('dnis', function (Blueprint $table) {
             $table->increments('id');
+            $table->bigInteger('dni');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('dnis');

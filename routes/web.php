@@ -13,6 +13,8 @@
 
 Auth::routes();
 
+Route::resource('/dnis', 'DniController');
+
 //Rutas relacionadas con usuarios regulares
 Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
 

@@ -10486,3 +10486,7 @@ a.text-dark:focus {
   cursor: pointer;
 }
 
+.main-error {
+  display: block;
+}
+
