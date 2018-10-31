@@ -1,14 +1,34 @@
-
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
 
 .navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.docInput {
+    width: 75%;
+    border: 1px solid grey;
+    border-radius: 5px;
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.submitDoc {
+    padding: 10px;
+    cursor: pointer;
+}
+
+// Tables
+@media (min-width: 768px) {
+}
+
+// Escritorio
+@media (min-width: 768px) {
 }
