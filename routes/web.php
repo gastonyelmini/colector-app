@@ -13,6 +13,7 @@
 
 Auth::routes();
 
+//Recursos
 Route::resource('/dnis', 'DniController');
 
 //Rutas relacionadas con usuarios regulares

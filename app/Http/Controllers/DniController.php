@@ -5,12 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\StroreDniRequest;
 use App\Dni;
+use DB;
 
 class DniController extends Controller
 {
     public function index()
     {
-        //
+        return DB::table('dnis')->get();
     }
 
     public function create()

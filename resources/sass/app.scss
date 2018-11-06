@@ -29,6 +29,15 @@
     display: block;
 }
 
+#success {
+    color: green !important;
+    font-size: 15px;
+}
+
+.main-error {
+    font-size: 15px;
+}
+
 // Tables
 @media (min-width: 768px) {
 }
