@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Colector') }} - Ingresar</title>
+    <title>{{ config('app.name', 'Colector') }}</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -47,6 +47,11 @@
                                 </a>
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    @if(Auth::user()->is_admin)
+                                    <a class="dropdown-item" href="{{ route('register') }}">
+                                        {{ __('Agregar usuario') }}
+                                    </a>
+                                    @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -57,6 +62,7 @@
                                         @csrf
                                     </form>
                                 </div>
+    
                             </li>
                         @endguest
                     </ul>
