@@ -8,7 +8,7 @@
                     <div class="card-body">
         
                         <form method="POST" v-on:submit.prevent="validateForm">
-                            <input type="number" name="dni" placeholder="Ej: 38155143" class="docInput" required v-model="acutualDni" v-on:click.prevent="cleanErrors">
+                            <input pattern="\d*" type="number" name="dni" placeholder="Ej: 38155143" class="docInput" required v-model="acutualDni" v-on:click.prevent="cleanErrors">
                             <button type="submit" class="submitDoc">Enviar</button>
                         </form>
 
