@@ -54,6 +54,12 @@
                                 </button>
                             </div>
                         </div>
+
+                        @if (session()->has('message'))
+                        <span class="invalid-feedback main-error" role="alert" id="success">
+                            <strong> {{ session()->get('message') }}</strong>
+                        </span>
+                        @endif
                     </form>
                 </div>
             </div>
