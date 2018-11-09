@@ -47383,6 +47383,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       errors: "",
 
+      username: "",
+
       success: false
     };
   },
@@ -47401,8 +47403,18 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         this.postDni();
       }
     },
-    postDni: function postDni() {
+    getAuthUserName: function getAuthUserName() {
       var _this = this;
+
+      var authUrl = this.base_url + "/users/username/";
+      axios.get(authUrl).then(function (response) {
+        _this.username = response.data;
+      }).catch(function (error) {
+        console.log(error);
+      });
+    },
+    postDni: function postDni() {
+      var _this2 = this;
 
       var urlCreateNewDni = this.base_url + "/dnis/";
 
@@ -47413,19 +47425,22 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         dataType: "json",
         data: {
           _token: this.token,
-          dni: this.acutualDni
+          dni: this.acutualDni,
+          registed_by: this.username
         }
       }).then(function (response) {
-        _this.acutualDni = "";
-        _this.success = true;
+        _this2.acutualDni = "";
+        _this2.success = true;
       }).catch(function (error) {
         alert("Error");
         console.log(error);
-        _this.success = false;
+        _this2.success = false;
       });
     }
   },
-  created: function created() {}
+  created: function created() {
+    this.getAuthUserName();
+  }
 });
 
 /***/ }),

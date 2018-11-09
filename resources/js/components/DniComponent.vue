@@ -40,6 +40,8 @@ export default {
 
       errors: "",
 
+      username: "",
+
       success: false
     };
   },
@@ -57,6 +59,17 @@ export default {
         this.postDni();
       }
     },
+    getAuthUserName: function() {
+      var authUrl = this.base_url + "/users/username/";
+      axios
+        .get(authUrl)
+        .then(response => {
+          this.username = response.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
     postDni: function() {
       var urlCreateNewDni = this.base_url + "/dnis/";
 
@@ -67,7 +80,8 @@ export default {
         dataType: "json",
         data: {
           _token: this.token,
-          dni: this.acutualDni
+          dni: this.acutualDni,
+          registed_by: this.username
         }
       })
         .then(response => {
@@ -81,6 +95,8 @@ export default {
         });
     }
   },
-  created: function() {}
+  created: function() {
+    this.getAuthUserName();
+  }
 };
 </script>

@@ -21,3 +21,7 @@ Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
 
 //Rutas relacionadas con administradores
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
+
+//Respuestas get
+Route::get('/users/username', 'UserController@getAuthUser')->name('home');
+

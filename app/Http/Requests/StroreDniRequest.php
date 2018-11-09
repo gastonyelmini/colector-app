@@ -14,7 +14,8 @@ class StroreDniRequest extends FormRequest
     public function rules()
     {
         return [
-            'dni' => 'required|numeric|min:0'
+            'dni' => 'required|numeric|min:0',
+            'registed_by' => 'required'
         ];
     }
 }

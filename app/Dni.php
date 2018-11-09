@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Dni extends Model
 {
-    protected $fillable = ['dni'];
+    protected $fillable = ['dni', 'registed_by'];
 }
