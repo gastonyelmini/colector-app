@@ -51,6 +51,9 @@
                                     <a class="dropdown-item" href="{{ route('register') }}">
                                         {{ __('Agregar usuario') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('csv') }}">
+                                        {{ __('Exportar datos') }}
+                                    </a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
