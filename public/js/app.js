@@ -47732,9 +47732,7 @@ var render = function() {
                 _vm._l(_vm.closings, function(closing) {
                   return _vm.closings.length > 0
                     ? _c("p", [
-                        _vm._v("- Cierre de datos "),
-                        _c("strong", [_vm._v("ID: " + _vm._s(closing.id))]),
-                        _vm._v(" en la fecha "),
+                        _vm._v("- Cierre de datos en la fecha "),
                         _c("strong", [
                           _vm._v(
                             _vm._s(

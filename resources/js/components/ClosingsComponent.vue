@@ -11,7 +11,7 @@
                       <button type="submit" class="submitDoc" v-on:click.prevent="postClosing()">Nuevo cierre de datos</button>
                       <div class="closings-list">
                         <p v-if="closings.length == 0"><strong>No hay cierres todavía.</strong></p>
-                        <p v-if="closings.length > 0" v-for="closing in closings">- Cierre de datos <strong>ID: {{ closing.id }}</strong> en la fecha <strong>{{ closing.created_at | moment("DD, MMMM YYYY") }}</strong>.</p>
+                        <p v-if="closings.length > 0" v-for="closing in closings">- Cierre de datos en la fecha <strong>{{ closing.created_at | moment("DD, MMMM YYYY") }}</strong>.</p>
                       </div>
                     </div>
                 </div>
