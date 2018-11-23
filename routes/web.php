@@ -26,6 +26,7 @@ Route::get('/cierres', 'AdminController@closings')->name('closings')->middleware
 
 //Respuestas get
 Route::get('/users/username', 'UserController@getAuthUser');
+Route::get('/users/isloader', 'UserController@getisLoader');
 Route::get('download-csv', function () {
 	$dnis = \App\Dni::all();
 	$csvExporter = new \Laracsv\Export();

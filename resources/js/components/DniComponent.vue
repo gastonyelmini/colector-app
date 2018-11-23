@@ -41,6 +41,7 @@ export default {
       errors: "",
 
       username: "",
+      isLoader: "",
 
       success: false
     };
@@ -65,6 +66,20 @@ export default {
         .get(authUrl)
         .then(response => {
           this.username = response.data;
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    },
+    getIsloader: function() {
+      var urlIsLoader = this.base_url + "/users/isloader/";
+      axios
+        .get(urlIsLoader)
+        .then(response => {
+          this.isLoader = response.data;
+          if(!this.isLoader) {
+            window.location.replace(this.base_url + '/faltantes');
+          } 
         })
         .catch(error => {
           console.log(error);
@@ -97,6 +112,7 @@ export default {
   },
   created: function() {
     this.getAuthUserName();
+    this.getIsloader();
   }
 };
 </script>
