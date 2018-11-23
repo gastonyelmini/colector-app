@@ -14,8 +14,8 @@ class NewDnisData extends Migration
     public function up()
     {
         Schema::table('dnis', function($table) {
-            $table->string('name_lastname');
-            $table->string('address');
+            $table->string('name_lastname')->nullable();
+            $table->string('address')->nullable();
         });
     }
 
