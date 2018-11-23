@@ -53,14 +53,15 @@ class DniController extends Controller
     }
 
     public function reImportdata() {
-        $oldDnis = DB::table('test')->get();
+        $oldDnis = DB::table('nuevos_dnis')->get();
 
         foreach($oldDnis as $r){
             $newDni = new Dni();
-            $newDni->dni = $r->DNI_Referente;
-            $newDni->registed_by = Auth::user()->username;
+            $newDni->dni = $r->DOCUMENTO;
+            $newDni->registed_by = $r->USER;
             $newDni->name_lastname = $r->APELLIDO_NOMBRE;
             $newDni->address = $r->DOMICILIO;
+            $newDni->school = $r->ESCUELA;
 
             $newDni->save();
         }
