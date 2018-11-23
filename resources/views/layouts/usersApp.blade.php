@@ -54,6 +54,9 @@
                                     <a class="dropdown-item" href="{{ route('csv') }}">
                                         {{ __('Exportar datos') }}
                                     </a>
+                                    <a class="dropdown-item" href="{{ route('closings') }}">
+                                        {{ __('Cierre de carga') }}
+                                    </a>
                                     @endif
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
