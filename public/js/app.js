@@ -69292,7 +69292,9 @@ var render = function() {
                         _c("strong", [_vm._v("Nombre y apellido:")]),
                         _vm._v(" " + _vm._s(remaining.name_lastname) + " | "),
                         _c("strong", [_vm._v("Domicilio:")]),
-                        _vm._v(" " + _vm._s(remaining.address))
+                        _vm._v(" " + _vm._s(remaining.address) + " | "),
+                        _c("strong", [_vm._v("Referente:")]),
+                        _vm._v(" " + _vm._s(remaining.registed_by))
                       ])
                     : _vm._e()
                 }),

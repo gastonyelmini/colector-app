@@ -14,7 +14,7 @@
                           <input v-model="search" type="text" placeholder="Buscar">
                         </div>
                         <p v-if="remainings.length == 0 && this.loading == false" ><strong>No hay faltantes todavía.</strong></p>
-                        <p v-if="filteredNames.length > 0" v-for="remaining in filteredNames">- <strong>DNI:</strong> {{ remaining.dni }} | <strong>Nombre y apellido:</strong> {{ remaining.name_lastname }} | <strong>Domicilio:</strong> {{ remaining.address }}</p>
+                        <p v-if="filteredNames.length > 0" v-for="remaining in filteredNames">- <strong>DNI:</strong> {{ remaining.dni }} | <strong>Nombre y apellido:</strong> {{ remaining.name_lastname }} | <strong>Domicilio:</strong> {{ remaining.address }} | <strong>Referente:</strong> {{ remaining.registed_by }}</p>
                         <p v-if="remainings.length > 0 && filteredNames.length == 0">No hay resultados para la busqueda.</p>
                         <p class="invalid-feedback main-error" v-if="loading">CARGANDO DATOS</p>
                       </div>
