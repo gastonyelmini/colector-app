@@ -69179,6 +69179,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -69186,7 +69191,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       base_url: window.location.origin,
       token: $('meta[name="csrf-token"]').attr("content"),
 
-      remainings: {}
+      remainings: [],
+
+      search: ""
     };
   },
 
@@ -69197,26 +69204,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var urlGetRemainings = this.base_url + "/remaining/";
       axios.get(urlGetRemainings).then(function (response) {
         _this.remainings = response.data;
-        console.log(_this.remainings);
-      }).catch(function (error) {
-        console.log(error);
-      });
-    },
-    postClosing: function postClosing() {
-      var _this2 = this;
-
-      var urlPostClosing = this.base_url + "/closings/";
-
-      axios({
-        url: urlPostClosing,
-        type: "post",
-        method: "post",
-        dataType: "json",
-        data: {
-          _token: this.token
-        }
-      }).then(function (response) {
-        _this2.getClosings();
       }).catch(function (error) {
         console.log(error);
       });
@@ -69224,6 +69211,16 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   },
   created: function created() {
     this.getRemainings();
+  },
+  computed: {
+    filteredNames: function filteredNames() {
+      var _this2 = this;
+
+      return this.remainings.filter(function (rmdObject) {
+        var filterData = rmdObject.name_lastname + rmdObject.dni + rmdObject.address;
+        return filterData.toLowerCase().includes(_this2.search.toLowerCase());
+      });
+    }
   }
 });
 
@@ -69248,14 +69245,39 @@ var render = function() {
               "div",
               { staticClass: "closings-list" },
               [
+                _c("div", { staticClass: "search-input" }, [
+                  _vm._m(0),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.search,
+                        expression: "search"
+                      }
+                    ],
+                    attrs: { type: "text", placeholder: "Buscar" },
+                    domProps: { value: _vm.search },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.search = $event.target.value
+                      }
+                    }
+                  })
+                ]),
+                _vm._v(" "),
                 _vm.remainings.length == 0
                   ? _c("p", [
                       _c("strong", [_vm._v("No hay faltantes todavía.")])
                     ])
                   : _vm._e(),
                 _vm._v(" "),
-                _vm._l(_vm.remainings, function(remaining) {
-                  return _vm.remainings.length > 0
+                _vm._l(_vm.filteredNames, function(remaining) {
+                  return _vm.filteredNames.length > 0
                     ? _c("p", [
                         _vm._v("- "),
                         _c("strong", [_vm._v("DNI:")]),
@@ -69266,7 +69288,11 @@ var render = function() {
                         _vm._v(" " + _vm._s(remaining.address))
                       ])
                     : _vm._e()
-                })
+                }),
+                _vm._v(" "),
+                _vm.remainings.length > 0 && _vm.filteredNames.length == 0
+                  ? _c("p", [_vm._v("No hay resultados para la busqueda.")])
+                  : _vm._e()
               ],
               2
             )
@@ -69276,7 +69302,23 @@ var render = function() {
     ])
   ])
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("p", [
+      _vm._v("Buscar por "),
+      _c("strong", [_vm._v("nombre")]),
+      _vm._v(", "),
+      _c("strong", [_vm._v("apellido")]),
+      _vm._v(", "),
+      _c("strong", [_vm._v("DNI")]),
+      _vm._v(" o "),
+      _c("strong", [_vm._v("domicilio")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

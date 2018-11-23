@@ -18,7 +18,7 @@ Route::resource('/dnis', 'DniController');
 
 //Rutas relacionadas con usuarios regulares
 Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
-Route::get('/faltantes', 'DniController@showMissings');
+Route::get('/faltantes', 'DniController@showMissings')->name('missings');
 
 //Rutas relacionadas con administradores
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');

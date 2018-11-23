@@ -96,7 +96,7 @@ class DniController extends Controller
             }
         }
 
-        return $dniListP1;
+        return json_encode($dniListP1);
 
     }
 }
