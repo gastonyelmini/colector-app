@@ -26,6 +26,10 @@ Vue.component(
     "closings-component",
     require("./components/ClosingsComponent.vue")
 );
+Vue.component(
+    "missings-component",
+    require("./components/MissingsComponent.vue")
+);
 
 const app = new Vue({
     el: "#app"

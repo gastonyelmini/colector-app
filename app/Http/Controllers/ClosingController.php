@@ -9,7 +9,7 @@ use App\Close;
 class ClosingController extends Controller
 {
     public function getClosings() {
-        return DB::table('closings')->get();
+        return DB::table('closings')->orderBy('id', 'DESC')->get();
     }
 
     public function postClosing() {

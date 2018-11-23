@@ -18,7 +18,7 @@ Route::resource('/dnis', 'DniController');
 
 //Rutas relacionadas con usuarios regulares
 Route::get('/', 'HomeController@index')->name('home')->middleware('auth');
-Route::get('/closings', 'ClosingController@getClosings')->middleware('admin');
+Route::get('/faltantes', 'DniController@showMissings');
 
 //Rutas relacionadas con administradores
 Route::get('/admin', 'AdminController@index')->name('admin')->middleware('admin');
@@ -32,6 +32,8 @@ Route::get('download-csv', function () {
 	return $csvExporter->build($dnis, ['id', 'dni', 'created_at', 'updated_at', 'registed_by'])->download();
 })->name('csv')->middleware('admin');
 Route::get('reimport', 'DniController@reImportdata');
+Route::get('remaining', 'DniController@getRemainingDnis');
+Route::get('/closings', 'ClosingController@getClosings')->middleware('admin');
 
 //Sector POST
 Route::post('/closings', 'ClosingController@postClosing')->middleware('admin');
