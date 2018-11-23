@@ -47736,11 +47736,12 @@ var render = function() {
                         _c("strong", [
                           _vm._v(
                             _vm._s(
-                              _vm._f("moment")(
-                                closing.created_at,
-                                "DD, MMMM YYYY"
+                              _vm._f("moment")(closing.created_at, "DD, MMMM")
+                            ) +
+                              " de " +
+                              _vm._s(
+                                _vm._f("moment")(closing.created_at, "YYYY")
                               )
-                            )
                           )
                         ]),
                         _vm._v(".")
