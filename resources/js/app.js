@@ -6,7 +6,14 @@
 
 require("./bootstrap");
 
+const moment = require("moment");
+require("moment/locale/es");
+
 window.Vue = require("vue");
+
+Vue.use(require("vue-moment"), {
+    moment
+});
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
@@ -15,6 +22,10 @@ window.Vue = require("vue");
  */
 
 Vue.component("dni-component", require("./components/DniComponent.vue"));
+Vue.component(
+    "closings-component",
+    require("./components/ClosingsComponent.vue")
+);
 
 const app = new Vue({
     el: "#app"

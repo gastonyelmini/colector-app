@@ -15,4 +15,9 @@ class AdminController extends Controller
     {
         return view('admin');
     }
+
+    public function closings()
+    {
+        return view('closings');
+    }
 }
