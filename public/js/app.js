@@ -69223,7 +69223,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     filteredNames: function filteredNames() {
       var _this2 = this;
 
-      return this.remainings.filter(function (rmdObject) {
+      return Object.values(this.remainings).filter(function (rmdObject) {
         var filterData = rmdObject.name_lastname + " " + rmdObject.dni;
         return filterData.toLowerCase().includes(_this2.search.toLowerCase());
       });
