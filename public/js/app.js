@@ -69184,6 +69184,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -69193,7 +69194,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       remainings: [],
 
-      search: ""
+      search: "",
+
+      loading: false
     };
   },
 
@@ -69202,10 +69205,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this = this;
 
       var urlGetRemainings = this.base_url + "/remaining/";
+
+      this.loading == true;
       axios.get(urlGetRemainings).then(function (response) {
         _this.remainings = response.data;
+        _this.loading == false;
       }).catch(function (error) {
         console.log(error);
+        _this.loading == false;
       });
     }
   },
@@ -69270,7 +69277,7 @@ var render = function() {
                   })
                 ]),
                 _vm._v(" "),
-                _vm.remainings.length == 0
+                _vm.remainings.length == 0 && this.loading == false
                   ? _c("p", [
                       _c("strong", [_vm._v("No hay faltantes todavía.")])
                     ])
@@ -69292,6 +69299,12 @@ var render = function() {
                 _vm._v(" "),
                 _vm.remainings.length > 0 && _vm.filteredNames.length == 0
                   ? _c("p", [_vm._v("No hay resultados para la busqueda.")])
+                  : _vm._e(),
+                _vm._v(" "),
+                _vm.loading
+                  ? _c("p", { staticClass: "invalid-feedback main-error" }, [
+                      _vm._v("CARGANDO DATOS")
+                    ])
                   : _vm._e()
               ],
               2
