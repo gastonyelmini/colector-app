@@ -62,7 +62,7 @@ export default {
   computed: {
     filteredNames() {
       return this.remainings.filter(rmdObject => {
-        var filterData = rmdObject.name_lastname + rmdObject.dni;
+        var filterData = rmdObject.name_lastname + " " + rmdObject.dni;
         return filterData.toLowerCase().includes(this.search.toLowerCase());
       });
     }
