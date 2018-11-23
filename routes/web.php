@@ -31,6 +31,7 @@ Route::get('download-csv', function () {
 	$csvExporter = new \Laracsv\Export();
 	return $csvExporter->build($dnis, ['id', 'dni', 'created_at', 'updated_at', 'registed_by'])->download();
 })->name('csv')->middleware('admin');
+Route::get('reimport', 'DniController@reImportdata');
 
 //Sector POST
 Route::post('/closings', 'ClosingController@postClosing')->middleware('admin');
