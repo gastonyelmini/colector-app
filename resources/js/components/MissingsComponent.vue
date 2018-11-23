@@ -10,11 +10,11 @@
                     <div class="card-body">
                       <div class="closings-list">
                         <div class="search-input">
-                          <p>Buscar por <strong>nombre</strong>, <strong>apellido</strong> o <strong>DNI</strong></p>
+                          <p>Buscar por <strong>nombre</strong>, <strong>apellido</strong> , <strong>DNI</strong> o <strong>domicilio</strong></p>
                           <input v-model="search" type="text" placeholder="Buscar">
                         </div>
                         <p v-if="remainings.length == 0 && this.loading == false" ><strong>No hay faltantes todavía.</strong></p>
-                        <p v-if="filteredNames.length > 0" v-for="remaining in filteredNames">- <strong>DNI:</strong> {{ remaining.dni }} | <strong>Nombre y apellido:</strong> {{ remaining.name_lastname }} | <strong>Domicilio:</strong> {{ remaining.address }} | <strong>Referente:</strong> {{ remaining.registed_by }}</p>
+                        <p v-if="filteredNames.length > 0" v-for="remaining in filteredNames">- <strong>DNI:</strong> {{ remaining.dni }} | <strong>Nombre y apellido:</strong> {{ remaining.name_lastname }} | <strong>Domicilio:</strong> {{ remaining.address }} | <strong>Referente:</strong> {{ remaining.registed_by }} | <strong>Escuela:</strong> {{ remaining.school }}</p>
                         <p v-if="remainings.length > 0 && filteredNames.length == 0">No hay resultados para la busqueda.</p>
                         <p class="invalid-feedback main-error" v-if="loading">CARGANDO DATOS</p>
                       </div>

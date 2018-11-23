@@ -29,7 +29,7 @@ Route::get('/users/username', 'UserController@getAuthUser');
 Route::get('download-csv', function () {
 	$dnis = \App\Dni::all();
 	$csvExporter = new \Laracsv\Export();
-	return $csvExporter->build($dnis, ['id', 'dni', 'name_lastname', 'address', 'created_at', 'updated_at', 'registed_by'])->download();
+	return $csvExporter->build($dnis, ['id', 'dni', 'name_lastname', 'address', 'created_at', 'updated_at', 'registed_by', 'school'])->download();
 })->name('csv')->middleware('admin');
 Route::get('reimport', 'DniController@reImportdata')->middleware('admin');
 Route::get('remaining', 'DniController@getRemainingDnis')->middleware('auth');

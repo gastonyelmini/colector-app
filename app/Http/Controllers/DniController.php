@@ -53,7 +53,7 @@ class DniController extends Controller
     }
 
     public function reImportdata() {
-        $oldDnis = DB::table('nuevos_dnis')->get();
+        $oldDnis = DB::table('nuevos_dnisç')->get();
 
         foreach($oldDnis as $r){
             $newDni = new Dni();
@@ -79,12 +79,14 @@ class DniController extends Controller
         $dniListP1 = DB::table('dnis')
             ->where('created_at','<=',$lastDate)
             ->where('created_at','>=',$penultimateDate)
+            ->where('registed_by','=', Auth::user()->username)
             ->get();
         
         //Aca van registrando los que vinieron luego del registro anterior
         $dniListP2 = DB::table('dnis')
             ->where('created_at','<=',$todayDate)
             ->where('created_at','>=',$lastDate)
+            ->where('registed_by','=', Auth::user()->username)
             ->get();
 
         
