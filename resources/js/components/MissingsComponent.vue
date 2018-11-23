@@ -10,7 +10,7 @@
                     <div class="card-body">
                       <div class="closings-list">
                         <div class="search-input">
-                          <p>Buscar por <strong>nombre</strong>, <strong>apellido</strong> o <strong>DNI</strong></p>
+                          <p>Buscar por <strong>DNI</strong></p>
                           <input v-model="search" type="text" placeholder="Buscar">
                         </div>
                         <p v-if="remainings.length == 0 && this.loading == false" ><strong>No hay faltantes todavía.</strong></p>
@@ -62,7 +62,7 @@ export default {
   computed: {
     filteredNames() {
       return this.remainings.filter(rmdObject => {
-        var filterData = rmdObject.name_lastname + " " + rmdObject.dni;
+        var filterData = mdObject.dni;
         return filterData.toLowerCase().includes(this.search.toLowerCase());
       });
     }
