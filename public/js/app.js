@@ -69206,13 +69206,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
       var urlGetRemainings = this.base_url + "/remaining/";
 
-      this.loading == true;
+      this.loading = true;
       axios.get(urlGetRemainings).then(function (response) {
         _this.remainings = response.data;
-        _this.loading == false;
+        _this.loading = false;
       }).catch(function (error) {
         console.log(error);
-        _this.loading == false;
+        _this.loading = false;
       });
     }
   },
@@ -69224,7 +69224,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       var _this2 = this;
 
       return this.remainings.filter(function (rmdObject) {
-        var filterData = rmdObject.name_lastname + rmdObject.dni + rmdObject.address;
+        var filterData = rmdObject.name_lastname + rmdObject.dni;
         return filterData.toLowerCase().includes(_this2.search.toLowerCase());
       });
     }
@@ -69325,10 +69325,8 @@ var staticRenderFns = [
       _c("strong", [_vm._v("nombre")]),
       _vm._v(", "),
       _c("strong", [_vm._v("apellido")]),
-      _vm._v(", "),
-      _c("strong", [_vm._v("DNI")]),
       _vm._v(" o "),
-      _c("strong", [_vm._v("domicilio")])
+      _c("strong", [_vm._v("DNI")])
     ])
   }
 ]

@@ -10,7 +10,7 @@
                     <div class="card-body">
                       <div class="closings-list">
                         <div class="search-input">
-                          <p>Buscar por <strong>nombre</strong>, <strong>apellido</strong>, <strong>DNI</strong> o <strong>domicilio</strong></p>
+                          <p>Buscar por <strong>nombre</strong>, <strong>apellido</strong> o <strong>DNI</strong></p>
                           <input v-model="search" type="text" placeholder="Buscar">
                         </div>
                         <p v-if="remainings.length == 0 && this.loading == false" ><strong>No hay faltantes todavía.</strong></p>
@@ -43,16 +43,16 @@ export default {
     getRemainings: function() {
       var urlGetRemainings = this.base_url + "/remaining/";
 
-      this.loading == true;
+      this.loading = true;
       axios
         .get(urlGetRemainings)
         .then(response => {
           this.remainings = response.data;
-          this.loading == false;
+          this.loading = false;
         })
         .catch(error => {
           console.log(error);
-          this.loading == false;
+          this.loading = false;
         });
     }
   },
@@ -62,8 +62,7 @@ export default {
   computed: {
     filteredNames() {
       return this.remainings.filter(rmdObject => {
-        var filterData =
-          rmdObject.name_lastname + rmdObject.dni + rmdObject.address;
+        var filterData = rmdObject.name_lastname + rmdObject.dni;
         return filterData.toLowerCase().includes(this.search.toLowerCase());
       });
     }
