@@ -86,7 +86,6 @@ class DniController extends Controller
         $dniListP2 = DB::table('dnis')
             ->where('created_at','<=',$todayDate)
             ->where('created_at','>=',$lastDate)
-            ->where('registed_by','=', Auth::user()->username)
             ->get();
 
         
