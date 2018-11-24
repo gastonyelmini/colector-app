@@ -52,7 +52,7 @@ export default {
       this.success = false;
     },
     validateForm: function() {
-      if (this.acutualDni.length < 8) {
+      if (this.acutualDni.length < 4) {
         this.errors = "El dni es demasiado corto.";
       } else if (this.acutualDni.length == "") {
         this.errors = "Por favor, completar el campo.";
