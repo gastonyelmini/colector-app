@@ -53,7 +53,7 @@ class DniController extends Controller
     }
 
     public function reImportdata() {
-        $oldDnis = DB::table('nuevos_dnisç')->get();
+        $oldDnis = DB::table('dnis_definitivos')->get();
 
         foreach($oldDnis as $r){
             $newDni = new Dni();
